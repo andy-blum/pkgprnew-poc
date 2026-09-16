@@ -1,0 +1,14 @@
+name: ci-timing
+# Long-running job used for CI timing/behavior experiments.
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  hold:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "run_id=$GITHUB_RUN_ID attempt=$GITHUB_RUN_ATTEMPT actor_id=$GITHUB_ACTOR_ID"
+          echo "sleeping..."
+          sleep 360
